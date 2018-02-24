@@ -1,10 +1,8 @@
 require 'date'
 require 'time'
-require 'bundler'
-Bundler.require
 
 # クラスPostの宣言
-class Post
+class Dust
   def recycleDay
     # 現在の曜日を確認し、その曜日のゴミの日を返す
     dust = checkDust(checkWeekDay)
@@ -12,9 +10,7 @@ class Post
     if dust.nil?
       puts('該当なし')
     else
-      puts("明日は" + dust + "の日だよ。忘れずに捨てよう！")
-      slack = Slack::Incoming::Webhooks.new ENV['POST_URL'], channel: 'general'
-      slack.post(":cow: 明日は" + dust + "の日だよ。忘れずに捨てよう！ ﾓ〜＞ :cow2:")
+      dust
     end
   end
 
