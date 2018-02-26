@@ -6,12 +6,7 @@ class Dust
   def recycleDay
     # 現在の曜日を確認し、その曜日のゴミの日を返す
     dust = checkDust(checkWeekDay)
-    # dustがnilではないとき
-    if dust.nil?
-      puts('該当なし')
-    else
-      dust
-    end
+    return dust
   end
 
   private
@@ -21,7 +16,7 @@ class Dust
     today = Date.today + 1
 
     # TEST
-    # today = Date.strptime("2016年06月17日", "%Y年%m月%d日")
+    # today = Date.strptime("2018年02月25日", "%Y年%m月%d日")
 
     if wdays[today.cwday] == "金"
       if week_of_month(today).eql?(1)
